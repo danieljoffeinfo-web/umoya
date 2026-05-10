@@ -4,150 +4,588 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Umoya — African Spirit</title>
-  <meta name="description" content="Pixel-locked landing page replica for Umoya African Spirit." />
+  <meta name="description" content="Umoya African Spirit sterling silver jewellery landing page." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --canvas-w: 1055;
-      --canvas-h: 1491;
-      --cream: #fbf7ef;
-      --navy: #07185a;
-      --coral: #ff637a;
+    :root{
+      --navy:#101d5b;
+      --navy-2:#0c1648;
+      --cream:#f7f0e4;
+      --cream-2:#fffaf0;
+      --yellow:#f4c619;
+      --coral:#ff6479;
+      --red:#e44646;
+      --blue:#3851ad;
+      --ink:#18224e;
+      --muted:#4f5884;
+      --border:rgba(16,29,91,.10);
+      --shadow:0 24px 64px rgba(14,23,67,.12);
+      --radius:18px;
+      --container:min(1055px, 100% - 48px);
     }
 
-    * { box-sizing: border-box; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Archivo',system-ui,sans-serif;
+      color:var(--ink);
+      background:#ebe4d7;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;color:inherit}
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      background: #eee8dd;
-      color: var(--navy);
-      font-family: "Nunito Sans", Arial, sans-serif;
+    .page{
+      width:var(--container);
+      margin:0 auto;
+      background:var(--cream);
+      box-shadow:0 28px 80px rgba(0,0,0,.12);
+      min-height:100vh;
     }
 
-    body {
-      display: flex;
-      justify-content: center;
-      padding: 0;
+    .display{font-family:'Archivo Black','Archivo',sans-serif;letter-spacing:-.04em;line-height:.91}
+    .caps{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+    .eyebrow{font-size:14px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+    .section-pad{padding-left:76px;padding-right:76px}
+
+    header{
+      height:92px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(247,240,228,.95);
+      backdrop-filter:blur(12px);
+    }
+    .menu-btn,
+    .cart-btn,
+    .arrow-btn{
+      border:0;
+      background:transparent;
+      cursor:pointer;
+    }
+    .menu-btn{padding:10px 0}
+    .nav-right{display:flex;align-items:center;justify-content:flex-end;gap:34px}
+    .nav-links{display:flex;gap:30px;align-items:center}
+    .nav-links a{position:relative}
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;bottom:-8px;
+      width:100%;height:1.5px;
+      background:var(--navy);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .2s ease;
+    }
+    .nav-links a:hover::after{transform:scaleX(1)}
+
+    .logo{display:flex;flex-direction:column;align-items:center;line-height:1}
+    .logo-mark{display:flex;align-items:center;gap:2px}
+    .logo-word{font-family:'Archivo Black','Archivo',sans-serif;font-size:34px;letter-spacing:-.03em;color:var(--navy)}
+    .logo-o{
+      width:26px;height:26px;border-radius:999px;border:2.4px solid var(--navy);
+      display:grid;place-items:center;position:relative;top:1px;
+    }
+    .logo-sun{
+      width:12px;height:12px;border-radius:999px;background:var(--yellow);
+      box-shadow:0 0 0 1.5px var(--navy);
+      position:relative;
+    }
+    .logo-sun::before{
+      content:"";
+      position:absolute;inset:-7px;
+      border-radius:999px;
+      background:conic-gradient(from 0deg, transparent 0 12deg, var(--navy) 12deg 16deg, transparent 16deg 30deg, var(--navy) 30deg 34deg, transparent 34deg 48deg, var(--navy) 48deg 52deg, transparent 52deg 66deg, var(--navy) 66deg 70deg, transparent 70deg 84deg, var(--navy) 84deg 88deg, transparent 88deg 102deg, var(--navy) 102deg 106deg, transparent 106deg 120deg, var(--navy) 120deg 124deg, transparent 124deg 138deg, var(--navy) 138deg 142deg, transparent 142deg 156deg, var(--navy) 156deg 160deg, transparent 160deg 174deg, var(--navy) 174deg 178deg, transparent 178deg 192deg, var(--navy) 192deg 196deg, transparent 196deg 360deg);
+      mask:radial-gradient(circle, transparent 52%, #000 54%, #000 58%, transparent 60%);
+    }
+    .logo-sub{margin-top:6px;padding-left:.42em;font-size:6.8px;letter-spacing:.48em;font-weight:700;text-transform:uppercase;color:var(--navy)}
+
+    .hero{
+      display:grid;
+      grid-template-columns:42% 58%;
+      min-height:540px;
+    }
+    .hero-copy{
+      padding:82px 38px 78px 78px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .hero-copy .eyebrow{color:var(--coral);margin-bottom:18px;font-size:13px}
+    .hero-title{font-size:84px;color:var(--navy);margin:0}
+    .hero-desc{
+      margin:24px 0 30px;
+      max-width:320px;
+      font-size:16px;
+      line-height:1.6;
+      color:var(--muted);
+      font-weight:500;
+    }
+    .primary-btn,
+    .secondary-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:54px;padding:0 32px;border-radius:999px;border:0;
+      background:var(--navy);color:var(--cream-2);
+      font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      cursor:pointer;transition:transform .15s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow:0 14px 30px rgba(16,29,91,.18);
+    }
+    .primary-btn:hover,.secondary-btn:hover{background:var(--navy-2);transform:translateY(-1px)}
+    .primary-btn:active,.secondary-btn:active{transform:translateY(1px)}
+
+    .hero-art{
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      background:var(--cream);
+    }
+    .hero-pattern{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(145deg, transparent 0 28%, var(--coral) 28% 44%, transparent 44% 100%),
+        linear-gradient(215deg, transparent 0 13%, var(--yellow) 13% 39%, transparent 39% 100%),
+        linear-gradient(35deg, transparent 0 55%, var(--blue) 55% 69%, transparent 69% 100%),
+        linear-gradient(325deg, transparent 0 70%, var(--red) 70% 80%, transparent 80% 100%),
+        repeating-linear-gradient(135deg,
+          var(--cream) 0 56px,
+          var(--navy) 56px 110px,
+          var(--cream) 110px 166px,
+          var(--yellow) 166px 222px,
+          var(--cream) 222px 278px,
+          var(--coral) 278px 334px,
+          var(--cream) 334px 390px,
+          var(--blue) 390px 446px);
+      clip-path:polygon(0 0,100% 0,100% 100%,18% 100%,10% 89%,0 89%);
+    }
+    .hero-ring{
+      position:absolute;
+      left:52%;top:50%;transform:translate(-50%,-50%);
+      width:min(450px, 74%);
+      aspect-ratio:1;
+      border-radius:50%;
+      background:var(--yellow);
+      border:6px solid var(--navy);
+      box-shadow:0 0 0 14px var(--cream);
+      display:grid;place-items:center;
+    }
+    .hero-ring img{width:87%;height:87%;object-fit:contain}
+
+    .feature-bar{
+      background:var(--navy);
+      color:#fff;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      min-height:116px;
+    }
+    .feature{
+      display:flex;align-items:center;justify-content:center;gap:16px;
+      padding:24px 18px;
+    }
+    .feature + .feature{border-left:1px solid rgba(255,255,255,.14)}
+    .icon-disc{
+      width:50px;height:50px;border-radius:50%;border:1.5px solid rgba(255,255,255,.75);
+      display:grid;place-items:center;flex:0 0 auto;
+    }
+    .feature-label{font-size:12px;font-weight:700;letter-spacing:.22em;line-height:1.45;text-transform:uppercase}
+
+    .collection{
+      display:grid;
+      grid-template-columns:290px 1fr;
+      gap:38px;
+      padding-top:86px;
+      padding-bottom:96px;
+      align-items:center;
+    }
+    .collection .eyebrow{color:var(--coral);font-size:13px}
+    .collection h2{
+      margin:14px 0 18px;
+      font-size:50px;line-height:.98;letter-spacing:-.04em;color:var(--navy);
+    }
+    .collection p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;line-height:1.6;
+      max-width:260px;
+    }
+    .text-link{
+      display:inline-flex;align-items:center;gap:14px;
+      margin-top:28px;padding-bottom:8px;
+      border-bottom:1.5px solid var(--navy);
+      font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);
+    }
+    .products-shell{position:relative}
+    .product-track{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+      transition:transform .25s ease;
+      padding:0 56px;
+    }
+    .product-card{
+      background:#fff;
+      border-radius:16px;
+      padding:24px 20px 20px;
+      box-shadow:0 1px 0 rgba(16,29,91,.06);
+      min-height:360px;
+      display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(16,29,91,.12)}
+    .product-media{width:100%;aspect-ratio:4/5;display:grid;place-items:center}
+    .product-name{margin-top:10px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.18em;line-height:1.45;text-transform:uppercase;color:var(--navy)}
+    .product-price{margin-top:8px;font-size:14px;color:var(--navy)}
+    .arrow-btn{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:44px;height:44px;border-radius:50%;background:#fff;
+      display:grid;place-items:center;box-shadow:0 10px 24px rgba(16,29,91,.14);
+      border:0;cursor:pointer;
+    }
+    .arrow-btn.prev{left:0}
+    .arrow-btn.next{right:0}
+
+    .movement{
+      display:grid;grid-template-columns:36% 64%;min-height:262px;
+    }
+    .movement-pattern{
+      position:relative;overflow:hidden;background:var(--navy);
+      background:
+        linear-gradient(135deg, transparent 0 18%, var(--yellow) 18% 30%, transparent 30% 100%),
+        linear-gradient(45deg, transparent 0 38%, var(--coral) 38% 51%, transparent 51% 100%),
+        linear-gradient(315deg, transparent 0 58%, var(--blue) 58% 68%, transparent 68% 100%),
+        repeating-linear-gradient(135deg,
+          var(--cream) 0 48px,
+          var(--navy) 48px 96px,
+          var(--cream) 96px 144px,
+          var(--yellow) 144px 192px,
+          var(--cream) 192px 240px,
+          var(--coral) 240px 288px,
+          var(--cream) 288px 336px,
+          var(--blue) 336px 384px);
+    }
+    .movement-copy{
+      background:var(--yellow);
+      padding:54px 76px;
+      display:flex;flex-direction:column;justify-content:center;
+    }
+    .movement-copy .eyebrow{font-size:13px;color:var(--coral)}
+    .movement-copy h2{margin:14px 0 0;font-size:52px;line-height:1.03;letter-spacing:-.04em;color:var(--navy)}
+    .movement-copy .secondary-btn{margin-top:28px;width:max-content}
+
+    footer{
+      background:var(--navy);
+      color:#fff;
+      display:grid;grid-template-columns:1fr auto 1fr;
+      gap:38px;
+      align-items:center;
+      padding-top:52px;padding-bottom:56px;
+    }
+    .footer-links{display:flex;flex-direction:column;gap:16px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+    .footer-links.right{align-items:flex-end}
+    .footer-center{display:flex;flex-direction:column;align-items:center;gap:18px}
+    .footer-center .logo-word,.footer-center .logo-sub{color:#fff}
+    .footer-center .logo-o{border-color:#fff}
+    .footer-center .logo-sun{box-shadow:0 0 0 1.5px #fff}
+    .footer-center .logo-sun::before{background:conic-gradient(from 0deg, transparent 0 12deg, #fff 12deg 16deg, transparent 16deg 30deg, #fff 30deg 34deg, transparent 34deg 48deg, #fff 48deg 52deg, transparent 52deg 66deg, #fff 66deg 70deg, transparent 70deg 84deg, #fff 84deg 88deg, transparent 88deg 102deg, #fff 102deg 106deg, transparent 106deg 120deg, #fff 120deg 124deg, transparent 124deg 138deg, #fff 138deg 142deg, transparent 142deg 156deg, #fff 156deg 160deg, transparent 160deg 174deg, #fff 174deg 178deg, transparent 178deg 192deg, #fff 192deg 196deg, transparent 196deg 360deg)}
+    .socials{display:flex;gap:18px}
+    .socials a{display:grid;place-items:center;width:20px;height:20px}
+
+    .pendant{width:100%;max-width:170px;height:auto}
+    .pendant circle,.pendant path,.pendant line{vector-effect:non-scaling-stroke}
+
+    .drawer{
+      position:fixed;inset:0;display:none;z-index:40;
+      background:rgba(8,15,44,.36);
+    }
+    .drawer.open{display:block}
+    .drawer-panel{
+      width:min(360px, 90vw);height:100%;background:var(--cream);
+      padding:28px 24px;box-shadow:28px 0 60px rgba(0,0,0,.18);
+    }
+    .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .drawer-nav{display:flex;flex-direction:column;gap:18px}
+    .drawer-nav a{font-size:14px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+
+    @media (max-width: 980px){
+      .page{width:100%;margin:0}
+      .section-pad{padding-left:28px;padding-right:28px}
+      header{padding-left:28px;padding-right:28px}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-copy{padding:56px 28px 26px}
+      .hero-title{font-size:58px}
+      .hero-art{min-height:440px}
+      .feature-bar{grid-template-columns:1fr}
+      .feature + .feature{border-left:0;border-top:1px solid rgba(255,255,255,.14)}
+      .collection{grid-template-columns:1fr;padding-top:58px;padding-bottom:70px}
+      .product-track{grid-template-columns:1fr;gap:14px;padding:0}
+      .arrow-btn{display:none}
+      .movement{grid-template-columns:1fr}
+      .movement-pattern{min-height:220px}
+      footer{grid-template-columns:1fr;justify-items:center;text-align:center}
+      .footer-links,.footer-links.right{align-items:center}
+      .nav-links{display:none}
     }
 
-    /*
-      Pixel-locked artboard:
-      The source design is 1055 × 1491. Everything scales proportionally,
-      so the layout stays framed exactly like the supplied reference.
-    */
-    .site-shell {
-      position: relative;
-      width: min(100vw, 1055px);
-      aspect-ratio: 1055 / 1491;
-      background: var(--cream);
-      overflow: hidden;
-      box-shadow: 0 20px 70px rgba(0,0,0,.14);
-    }
-
-    .reference-layer {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    /* Hero headline patch: this preserves the 1:1 page framing while allowing
-       the requested micro-adjustment: SPIRIT is moved slightly higher. */
-    .hero-copy-patch {
-      position: absolute;
-      left: calc(78 / var(--canvas-w) * 100%);
-      top: calc(190 / var(--canvas-h) * 100%);
-      width: calc(360 / var(--canvas-w) * 100%);
-      height: calc(198 / var(--canvas-h) * 100%);
-      background: linear-gradient(90deg, #fbf7ef 0%, #fbf7ef 88%, rgba(251,247,239,0) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      pointer-events: none;
-    }
-
-    .kicker {
-      margin-top: calc(5 / var(--canvas-h) * 100%);
-      font-family: "Montserrat", Arial, sans-serif;
-      color: var(--coral);
-      font-weight: 900;
-      letter-spacing: .035em;
-      font-size: clamp(14px, calc(19 / 1055 * 100vw), 19px);
-      line-height: 1;
-    }
-
-    .headline {
-      margin-top: calc(26 / var(--canvas-h) * 100%);
-      font-family: "Montserrat", Arial, sans-serif;
-      font-weight: 900;
-      letter-spacing: .032em;
-      font-size: clamp(40px, calc(64 / 1055 * 100vw), 64px);
-      line-height: .91;
-    }
-
-    .headline span {
-      display: block;
-    }
-
-    .headline .spirit {
-      transform: translateY(-7px);
-    }
-
-    /* Keep links/buttons clickable while remaining visually identical to the image. */
-    .hit {
-      position: absolute;
-      display: block;
-      text-indent: -9999px;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .hit-shop-nav { left: 70.5%; top: 3.1%; width: 6%; height: 2.2%; }
-    .hit-about-nav { left: 78.2%; top: 3.1%; width: 7%; height: 2.2%; }
-    .hit-story-nav { left: 87%; top: 3.1%; width: 6.2%; height: 2.2%; }
-    .hit-bag { left: 94.2%; top: 2.9%; width: 3.2%; height: 2.4%; }
-    .hit-hero-cta { left: 7.5%; top: 31.1%; width: 18%; height: 3.4%; }
-    .hit-collection-cta { left: 7.3%; top: 66.0%; width: 18.3%; height: 2.4%; }
-    .hit-story-cta { left: 46.4%; top: 85.1%; width: 14%; height: 3.6%; }
-
-    @media (min-width: 1056px) {
-      .kicker { font-size: 19px; }
-      .headline { font-size: 64px; }
-    }
-
-    @media (max-width: 640px) {
-      body { background: #fbf7ef; }
-      .site-shell { width: 100vw; box-shadow: none; }
-      .headline .spirit { transform: translateY(-4px); }
+    @media (max-width: 640px){
+      body{background:var(--cream)}
+      .page{box-shadow:none}
+      header{height:80px}
+      .hero-copy{padding:42px 24px 20px}
+      .hero-title{font-size:46px}
+      .hero-desc{font-size:15px;max-width:100%}
+      .hero-art{min-height:360px}
+      .hero-ring{width:min(320px, 84%);box-shadow:0 0 0 10px var(--cream)}
+      .collection h2,.movement-copy h2{font-size:40px}
     }
   </style>
 </head>
 <body>
-  <main class="site-shell" aria-label="Umoya African Spirit landing page">
-    <img class="reference-layer" src="assets/umoya-reference.jpeg" alt="Umoya African Spirit landing page design with sterling silver necklace and geometric packaging-inspired artwork" />
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <div class="logo" aria-label="Umoya logo">
+          <div class="logo-mark">
+            <span class="logo-word">UM</span>
+            <span class="logo-o"><span class="logo-sun"></span></span>
+            <span class="logo-word">YA</span>
+          </div>
+          <div class="logo-sub">African Spirit</div>
+        </div>
+        <button class="menu-btn" id="closeDrawer" aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101d5b" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#collection">Shop</a>
+        <a href="#about">About</a>
+        <a href="#story">Story</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
-    <section class="hero-copy-patch" aria-hidden="true">
-      <div class="kicker">STERLING SILVER</div>
-      <h1 class="headline">
-        <span>AFRICAN</span>
-        <span class="spirit">SPIRIT</span>
-      </h1>
+  <main class="page">
+    <header class="section-pad">
+      <div>
+        <button class="menu-btn" id="openDrawer" aria-label="Open menu">
+          <svg width="28" height="20" viewBox="0 0 28 20" fill="none" stroke="#101d5b" stroke-width="2.4" stroke-linecap="round">
+            <path d="M2 3h24M2 10h24M2 17h24"/>
+          </svg>
+        </button>
+      </div>
+      <a href="#top" class="logo" aria-label="Umoya home">
+        <div class="logo-mark">
+          <span class="logo-word">UM</span>
+          <span class="logo-o"><span class="logo-sun"></span></span>
+          <span class="logo-word">YA</span>
+        </div>
+        <div class="logo-sub">African Spirit</div>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links caps" aria-label="Primary navigation">
+          <a href="#collection">Shop</a>
+          <a href="#about">About</a>
+          <a href="#story">Story</a>
+        </nav>
+        <button class="cart-btn" aria-label="Open cart">
+          <svg width="22" height="24" viewBox="0 0 22 24" fill="none" stroke="#101d5b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7h16l-1.5 13a2 2 0 0 1-2 1.8H6.5a2 2 0 0 1-2-1.8L3 7z"/>
+            <path d="M7 7V5a4 4 0 0 1 8 0v2"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow">Sterling Silver</div>
+        <h1 class="display hero-title">AFRICAN<br>SPIRIT</h1>
+        <p class="hero-desc">Inspired by heritage. Crafted in sterling silver. Made to empower.</p>
+        <div><a class="primary-btn" href="#collection">Shop Collection</a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-pattern"></div>
+        <div class="hero-ring">
+          <img src="assets/product-circle-source.png" alt="Sterling silver giraffe pendant necklace">
+        </div>
+      </div>
     </section>
 
-    <a class="hit hit-shop-nav" href="#collection">Shop</a>
-    <a class="hit hit-about-nav" href="#about">About</a>
-    <a class="hit hit-story-nav" href="#story">Story</a>
-    <a class="hit hit-bag" href="#cart">Cart</a>
-    <a class="hit hit-hero-cta" href="#collection">Shop collection</a>
-    <a class="hit hit-collection-cta" href="#collection">Explore collection</a>
-    <a class="hit hit-story-cta" href="#story">Our story</a>
+    <section class="feature-bar">
+      <div class="feature">
+        <div class="icon-disc">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#f4c619"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>
+        </div>
+        <div class="feature-label">Authentic<br>Heritage</div>
+      </div>
+      <div class="feature">
+        <div class="icon-disc">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M12 3l1.7 7.3L21 12l-7.3 1.7L12 21l-1.7-7.3L3 12l7.3-1.7L12 3z" fill="#fff"/></svg>
+        </div>
+        <div class="feature-label">Sterling<br>Silver</div>
+      </div>
+      <div class="feature">
+        <div class="icon-disc">
+          <svg width="22" height="20" viewBox="0 0 24 22" fill="#f4c619"><path d="M5 2h14l4 6-11 13L1 8 5 2z"/><path d="M5 2l4 6H1m18-6l-4 6h8m-14 0h6m0 0l-3 13m3-13l3 13" stroke="#101d5b" stroke-width=".7" fill="none" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="feature-label">Crafted To<br>Empower</div>
+      </div>
+    </section>
+
+    <section class="collection section-pad" id="collection">
+      <div class="collection-copy" id="about">
+        <div class="eyebrow">The Collection</div>
+        <h2>Symbols of<br>connection.</h2>
+        <p>Each piece tells a story of love, strength, and unity.</p>
+        <a class="text-link" href="#story">Explore Collection
+          <svg width="22" height="10" viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h19M16 1l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="products-shell">
+        <button class="arrow-btn prev" id="prevProducts" aria-label="Previous products">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#101d5b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2 4 7l5 5"/></svg>
+        </button>
+        <div class="product-track" id="productTrack">
+          <a href="#contact" class="product-card">
+            <div class="product-media">
+              <svg class="pendant" viewBox="0 0 240 280" aria-hidden="true">
+                <g fill="none" stroke="#c7ccd7" stroke-width="2.2" stroke-linecap="round">
+                  <path d="M120 102 C 80 74, 42 28, 10 6" stroke-dasharray="3 4"/>
+                  <path d="M120 102 C 160 74, 198 28, 230 6" stroke-dasharray="3 4"/>
+                </g>
+                <g fill="none" stroke="#c7ccd7" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" transform="translate(120 168)">
+                  <path d="M-6 -54 C -10 -56,-10 -62,-4 -62 C -2 -62,-1 -64,0 -66 C 1 -64,2 -62,4 -62 C 8 -62,9 -58,7 -54 C 5 -52,4 -50,4 -46 C 4 -38,8 -28,12 -16 C 14 -8,14 0,12 8 C 11 14,12 22,14 30 C 16 38,16 46,14 52 L 8 52 C 8 46,6 40,6 32 C 6 24,4 18,2 14 C 0 10,-4 12,-6 18 C -8 26,-10 36,-10 44 C -10 48,-12 52,-14 52 L -18 52 C -18 44,-16 36,-14 28 C -12 18,-14 6,-16 -4 C -18 -14,-16 -24,-12 -32 C -10 -38,-8 -44,-8 -50 C -8 -52,-7 -53,-6 -54Z"/>
+                  <path d="M-22 4 C -24 2,-24 -2,-20 -2 C -18 -2,-18 -4,-17 -6 C -16 -4,-15 -2,-13 -2 C -10 -2,-10 2,-12 4 C -14 8,-14 14,-12 20 C -10 28,-10 36,-12 44 C -13 48,-14 52,-16 52 L -20 52 C -20 46,-19 40,-20 34 C -22 28,-24 22,-24 14 C -24 10,-23 6,-22 4Z"/>
+                </g>
+              </svg>
+            </div>
+            <div class="product-name">Heritage Necklace</div>
+            <div class="product-price">$89</div>
+          </a>
+          <a href="#contact" class="product-card">
+            <div class="product-media">
+              <svg class="pendant" viewBox="0 0 240 280" aria-hidden="true">
+                <g fill="none" stroke="#c7ccd7" stroke-width="2.2" stroke-linecap="round">
+                  <path d="M120 102 C 80 74, 42 28, 10 6" stroke-dasharray="3 4"/>
+                  <path d="M120 102 C 160 74, 198 28, 230 6" stroke-dasharray="3 4"/>
+                </g>
+                <g fill="none" stroke="#c7ccd7" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" transform="translate(120 168)">
+                  <circle r="34"/>
+                  <path d="M0 34V12M-4 16 0 8l4 8M-7 4 0-4 7 4M-10 -8 0-16 10-8"/>
+                  <path d="M-14 0C-22 -10,-10 -22,0 -16"/>
+                  <path d="M14 0C22 -10,10 -22,0 -16"/>
+                  <path d="M-12 12C-22 8,-22 -4,-14 -2"/>
+                  <path d="M12 12C22 8,22 -4,14 -2"/>
+                </g>
+              </svg>
+            </div>
+            <div class="product-name">Roots Necklace</div>
+            <div class="product-price">$79</div>
+          </a>
+          <a href="#contact" class="product-card">
+            <div class="product-media">
+              <svg class="pendant" viewBox="0 0 240 280" aria-hidden="true">
+                <g fill="none" stroke="#c7ccd7" stroke-width="2.2" stroke-linecap="round">
+                  <path d="M120 102 C 80 74, 42 28, 10 6" stroke-dasharray="3 4"/>
+                  <path d="M120 102 C 160 74, 198 28, 230 6" stroke-dasharray="3 4"/>
+                </g>
+                <g fill="none" stroke="#c7ccd7" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" transform="translate(120 168)">
+                  <path d="M-14 -38 C -6 -40,4 -40,12 -36 C 18 -30,22 -20,24 -10 C 26 0,22 12,16 22 C 12 30,8 36,4 42 C 0 48,-4 50,-8 46 C -14 38,-18 30,-22 22 C -26 10,-28 -4,-24 -18 C -22 -28,-18 -34,-14 -38Z"/>
+                  <path d="M-4 -8 C -6 -12,-2 -14,0 -10 C 2 -14,6 -12,4 -8 C 2 -4,0 -2,0 0 C 0 -2,-2 -4,-4 -8Z" fill="#c7ccd7" stroke="none"/>
+                </g>
+              </svg>
+            </div>
+            <div class="product-name">Africa Heart Necklace</div>
+            <div class="product-price">$79</div>
+          </a>
+        </div>
+        <button class="arrow-btn next" id="nextProducts" aria-label="Next products">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#101d5b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 2 5 5-5 5"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="movement" id="story">
+      <div class="movement-pattern"></div>
+      <div class="movement-copy">
+        <div class="eyebrow">Umoya</div>
+        <h2>More than jewelry.<br>It's a movement.</h2>
+        <a class="secondary-btn" href="#contact">Our Story</a>
+      </div>
+    </section>
+
+    <footer class="section-pad" id="contact">
+      <div class="footer-links">
+        <a href="#collection">Shop</a>
+        <a href="#story">Our Story</a>
+      </div>
+      <div class="footer-center">
+        <div class="logo" aria-label="Umoya logo white">
+          <div class="logo-mark">
+            <span class="logo-word">UM</span>
+            <span class="logo-o"><span class="logo-sun"></span></span>
+            <span class="logo-word">YA</span>
+          </div>
+          <div class="logo-sub">African Spirit</div>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="#fff"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.4-2 2.1-2H17V2.2C16.6 2.1 15.5 2 14.3 2 11.6 2 10 3.7 10 6.8V10H7v4h3v8h3z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M11 7c2.5 0 4 1.6 4 3.7 0 2.4-1.4 4.2-3.4 4.2-.7 0-1.4-.4-1.6-.9 0 0-.4 1.6-.5 1.9-.2.7-.7 1.5-1.1 2.1l-.3-.1c-.1-.7-.1-1.6 0-2.3.1-.5 1-4.2 1-4.2s-.2-.5-.2-1.2c0-1.1.7-1.9 1.5-1.9.7 0 1 .5 1 1.1 0 .7-.4 1.7-.7 2.7-.2.8.4 1.4 1.1 1.4 1.4 0 2.4-1.7 2.4-3.6 0-1.5-1-2.6-2.9-2.6-2.1 0-3.4 1.6-3.4 3.3 0 .6.2 1.1.5 1.5.1.1.1.2.1.4-.1.2-.2.7-.2.8 0 .1-.1.2-.3.1-1-.4-1.5-1.5-1.5-2.7 0-2 1.7-4.4 5-4.4z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-links right">
+        <a href="#">Sustainability</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
   </main>
+
+  <script>
+    const drawer = document.getElementById('drawer');
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    openDrawer?.addEventListener('click', () => {
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+    });
+    closeDrawer?.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+    });
+    drawer?.addEventListener('click', (e) => {
+      if (e.target === drawer) {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    const cards = Array.from(document.querySelectorAll('.product-card'));
+    let productIndex = 0;
+    function updateProducts(){
+      if (window.innerWidth <= 980) {
+        cards.forEach((card, idx) => card.style.display = 'flex');
+        return;
+      }
+      cards.forEach((card, idx) => {
+        card.style.display = idx >= productIndex && idx < productIndex + 3 ? 'flex' : 'none';
+      });
+    }
+    document.getElementById('prevProducts')?.addEventListener('click', () => {
+      productIndex = Math.max(0, productIndex - 1);
+      updateProducts();
+    });
+    document.getElementById('nextProducts')?.addEventListener('click', () => {
+      productIndex = Math.min(Math.max(0, cards.length - 3), productIndex + 1);
+      updateProducts();
+    });
+    window.addEventListener('resize', updateProducts);
+    updateProducts();
+  </script>
 </body>
 </html>
