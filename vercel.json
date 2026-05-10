@@ -3,14 +3,14 @@
   "name": "umoya",
   "builds": [
     {
-      "src": "Umoya Landing.html",
+      "src": "index.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
-      "dest": "/Umoya Landing.html"
+      "dest": "/index.html"
     },
     {
       "src": "/(.*)",

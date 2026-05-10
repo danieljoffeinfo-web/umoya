@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Umoya — African Spirit</title>
+  <meta name="description" content="Pixel-locked landing page replica for Umoya African Spirit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas-w: 1055;
+      --canvas-h: 1491;
+      --cream: #fbf7ef;
+      --navy: #07185a;
+      --coral: #ff637a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #eee8dd;
+      color: var(--navy);
+      font-family: "Nunito Sans", Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    /*
+      Pixel-locked artboard:
+      The source design is 1055 × 1491. Everything scales proportionally,
+      so the layout stays framed exactly like the supplied reference.
+    */
+    .site-shell {
+      position: relative;
+      width: min(100vw, 1055px);
+      aspect-ratio: 1055 / 1491;
+      background: var(--cream);
+      overflow: hidden;
+      box-shadow: 0 20px 70px rgba(0,0,0,.14);
+    }
+
+    .reference-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Hero headline patch: this preserves the 1:1 page framing while allowing
+       the requested micro-adjustment: SPIRIT is moved slightly higher. */
+    .hero-copy-patch {
+      position: absolute;
+      left: calc(78 / var(--canvas-w) * 100%);
+      top: calc(190 / var(--canvas-h) * 100%);
+      width: calc(360 / var(--canvas-w) * 100%);
+      height: calc(198 / var(--canvas-h) * 100%);
+      background: linear-gradient(90deg, #fbf7ef 0%, #fbf7ef 88%, rgba(251,247,239,0) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      pointer-events: none;
+    }
+
+    .kicker {
+      margin-top: calc(5 / var(--canvas-h) * 100%);
+      font-family: "Montserrat", Arial, sans-serif;
+      color: var(--coral);
+      font-weight: 900;
+      letter-spacing: .035em;
+      font-size: clamp(14px, calc(19 / 1055 * 100vw), 19px);
+      line-height: 1;
+    }
+
+    .headline {
+      margin-top: calc(26 / var(--canvas-h) * 100%);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: .032em;
+      font-size: clamp(40px, calc(64 / 1055 * 100vw), 64px);
+      line-height: .91;
+    }
+
+    .headline span {
+      display: block;
+    }
+
+    .headline .spirit {
+      transform: translateY(-7px);
+    }
+
+    /* Keep links/buttons clickable while remaining visually identical to the image. */
+    .hit {
+      position: absolute;
+      display: block;
+      text-indent: -9999px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .hit-shop-nav { left: 70.5%; top: 3.1%; width: 6%; height: 2.2%; }
+    .hit-about-nav { left: 78.2%; top: 3.1%; width: 7%; height: 2.2%; }
+    .hit-story-nav { left: 87%; top: 3.1%; width: 6.2%; height: 2.2%; }
+    .hit-bag { left: 94.2%; top: 2.9%; width: 3.2%; height: 2.4%; }
+    .hit-hero-cta { left: 7.5%; top: 31.1%; width: 18%; height: 3.4%; }
+    .hit-collection-cta { left: 7.3%; top: 66.0%; width: 18.3%; height: 2.4%; }
+    .hit-story-cta { left: 46.4%; top: 85.1%; width: 14%; height: 3.6%; }
+
+    @media (min-width: 1056px) {
+      .kicker { font-size: 19px; }
+      .headline { font-size: 64px; }
+    }
+
+    @media (max-width: 640px) {
+      body { background: #fbf7ef; }
+      .site-shell { width: 100vw; box-shadow: none; }
+      .headline .spirit { transform: translateY(-4px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="site-shell" aria-label="Umoya African Spirit landing page">
+    <img class="reference-layer" src="assets/umoya-reference.jpeg" alt="Umoya African Spirit landing page design with sterling silver necklace and geometric packaging-inspired artwork" />
+
+    <section class="hero-copy-patch" aria-hidden="true">
+      <div class="kicker">STERLING SILVER</div>
+      <h1 class="headline">
+        <span>AFRICAN</span>
+        <span class="spirit">SPIRIT</span>
+      </h1>
+    </section>
+
+    <a class="hit hit-shop-nav" href="#collection">Shop</a>
+    <a class="hit hit-about-nav" href="#about">About</a>
+    <a class="hit hit-story-nav" href="#story">Story</a>
+    <a class="hit hit-bag" href="#cart">Cart</a>
+    <a class="hit hit-hero-cta" href="#collection">Shop collection</a>
+    <a class="hit hit-collection-cta" href="#collection">Explore collection</a>
+    <a class="hit hit-story-cta" href="#story">Our story</a>
+  </main>
+</body>
+</html>
